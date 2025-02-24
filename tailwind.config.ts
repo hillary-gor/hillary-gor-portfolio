@@ -9,10 +9,20 @@ export default {
   theme: {
     extend: {
       colors: {
+        secondary: "#1a202c",
+        accent: "#f13024",
+      },
+    },
+  },
+
+  /*theme: {
+    extend: {
+      colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
     },
-  },
+  },*/
+
   plugins: [],
 } satisfies Config;
