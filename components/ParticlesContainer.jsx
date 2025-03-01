@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback } from "react";
-import { Particles } from "@tsparticles/react"; // ✅ Correct package
-import { Engine } from "@tsparticles/engine"; // ✅ Correct Engine import
-import { loadFull } from "tsparticles"; // ✅ Correct import for loadFull
+import { Particles } from "@tsparticles/react";
+import { Engine } from "@tsparticles/engine";
+import { loadFull } from "tsparticles";
 
 const ParticlesContainer = () => {
   // init
