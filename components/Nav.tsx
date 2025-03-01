@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -11,25 +13,22 @@ import {
   HiEnvelope,
 } from "react-icons/hi2";
 
-// nav data
-export const navData = [
+interface NavItem {
+  name: string;
+  path: string;
+  Icon: React.ElementType;
+}
+
+export const navData: NavItem[] = [
   { name: "home", path: "/", Icon: HiHome },
   { name: "about", path: "/about", Icon: HiUser },
   { name: "services", path: "/services", Icon: HiRectangleGroup },
   { name: "work", path: "/work", Icon: HiViewColumns },
-  {
-    name: "testimonials",
-    path: "/testimonials",
-    Icon: HiChatBubbleBottomCenterText,
-  },
-  {
-    name: "contact",
-    path: "/contact",
-    Icon: HiEnvelope,
-  },
+  { name: "testimonials", path: "/testimonials", Icon: HiChatBubbleBottomCenterText },
+  { name: "contact", path: "/contact", Icon: HiEnvelope },
 ];
 
-const Nav = () => {
+const Nav: React.FC = () => {
   const pathname = usePathname();
 
   return (
@@ -38,12 +37,12 @@ const Nav = () => {
         {navData.map((link, i) => (
           <Link
             className={`${
-              link.path === pathname && "text-accent"
+              link.path === pathname ? "text-accent" : ""
             } relative flex items-center group hover:text-accent transition-all duration-300`}
             href={link.path}
             key={i}
           >
-            {/* tolltip */}
+            {/* Tooltip */}
             <div
               role="tooltip"
               className="absolute pr-14 right-0 hidden xl:group-hover:flex"
@@ -53,7 +52,7 @@ const Nav = () => {
                   {link.name}
                 </div>
 
-                {/* triangle */}
+                {/* Triangle */}
                 <div
                   className="border-solid border-l-white border-l-8 border-y-transparent border-y-[6px] border-r-0 absolute -right-2"
                   aria-hidden
@@ -61,7 +60,7 @@ const Nav = () => {
               </div>
             </div>
 
-            {/* icon */}
+            {/* Icon */}
             <div>
               <link.Icon aria-hidden />
             </div>

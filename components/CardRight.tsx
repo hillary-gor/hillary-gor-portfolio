@@ -1,4 +1,4 @@
-const CardRight = () => {
+const CardRight: React.FC = () => {
   return <div>Card Right</div>;
 };
 
